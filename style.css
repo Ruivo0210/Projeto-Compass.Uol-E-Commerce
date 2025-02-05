@@ -1,0 +1,166 @@
+@import url(https://db.onlinewebfonts.com/c/f1fcc5aed1e20fc0cdb9f8a7573625bd?family=Integral+CF+Regular);
+@import url(https://db.onlinewebfonts.com/c/b52804ac57ef6e90d2826a6b0f111133?family=Integral+CF+Bold);
+
+@font-face {
+    font-family: "Integral CF Regular";
+    src: url("https://db.onlinewebfonts.com/t/f1fcc5aed1e20fc0cdb9f8a7573625bd.eot");
+    src: url("https://db.onlinewebfonts.com/t/f1fcc5aed1e20fc0cdb9f8a7573625bd.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/f1fcc5aed1e20fc0cdb9f8a7573625bd.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/f1fcc5aed1e20fc0cdb9f8a7573625bd.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/f1fcc5aed1e20fc0cdb9f8a7573625bd.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/f1fcc5aed1e20fc0cdb9f8a7573625bd.svg#Integral CF Regular")format("svg");
+}
+
+@font-face {
+    font-family: "Integral CF Bold";
+    src: url("https://db.onlinewebfonts.com/t/b52804ac57ef6e90d2826a6b0f111133.eot");
+    src: url("https://db.onlinewebfonts.com/t/b52804ac57ef6e90d2826a6b0f111133.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/b52804ac57ef6e90d2826a6b0f111133.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/b52804ac57ef6e90d2826a6b0f111133.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/b52804ac57ef6e90d2826a6b0f111133.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/b52804ac57ef6e90d2826a6b0f111133.svg#Integral CF Bold")format("svg");
+}
+
+:root{
+    background-color: #000000;
+    --color-1: #ffffff;
+    --text-color: #000000;
+    --accent-color: #F0F0F0;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 10pt;
+    font-family: 'Satoshi', sans-serif;
+}
+
+nav{
+    height: 60px;
+    background-color: var(--color-1);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px 30px;
+    white-space: nowrap;
+}
+
+.links-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+nav a{
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+nav .home-link{
+    font-family: 'Integral CF Bold', sans-serif;
+    font-size: 20pt;
+    background-color: none;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 30px;
+    padding: 10px 15px;
+    width: 180px;
+    flex-grow: 1;
+    margin: 10px 10px;
+}
+
+.search-container input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    flex: 1;
+    color: #6c6c6c;
+}
+
+.search-container svg {
+    width: 20px;
+    height: 20px;
+    fill: #6c6c6c;
+    margin-right: 10px;
+}
+
+nav svg{
+    fill: var(--text-color);
+}
+
+#sidebar-active{
+    display: none;
+}
+
+.open-sidebar-button, .close-sidebar-button{
+    display: none;
+}
+
+/* GRID */
+
+.style-container{
+    display: grid;
+    background-color: var(--accent-color);
+}
+
+@media(max-width: 450px){
+    .links-container{
+        flex-direction: column;
+        align-items: flex-start;
+
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        width: 300px;
+
+        background-color: var(--color-1);
+        box-shadow: -5px 0 5px rgba(0,0,0,0.25);
+        transition: 0.5s ease-out;
+    }
+    nav a{
+        box-sizing: border-box;
+        height: auto;
+        width: 100%;
+        padding: 20px 30px;
+        justify-content: flex-start;
+    }
+    .open-sidebar-button, .close-sidebar-button{
+        padding: 20px;
+        display: block;
+    }
+    #sidebar-active:checked ~ .links-container{
+        right: 0;
+    }
+    #sidebar-active:checked ~ #overlay{
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9;
+    }
+}
+
+/* .container{
+    display:flex;
+    gap: 2em;
+    flex-wrap: wrap; 
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+} */
